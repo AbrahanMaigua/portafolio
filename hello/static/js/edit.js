@@ -8,11 +8,11 @@ function checkmediaquery() {
 	// body...
 	const media_query =window.screen.availWidth;
 	let element = mobil('.welcome-text')
-	if (media_query < 600 ) {
+	if (media_query < 652 ) {
 		console.log("no no")
 		console.log("aver ")
 		element.style.padding = "39rem 7rem";
-		element.style.margin = '20% 20%';
+		//element.style.margin = '20% 20%';
 		element;
 		console.log(media_query, window.screen.availHeight)
 	} else if ( media_query > 768) {
@@ -26,6 +26,7 @@ function checkmediaquery() {
 		if (element.attributes.length > 1) {
 			// statement
 			element.attributes.removeNamedItem('style');
+			console.log("delete")
 		};
 		console.log(media_query, window.screen.availHeight)
 
