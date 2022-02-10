@@ -11,7 +11,7 @@ function checkmediaquery() {
 	if (media_query < 652 ) {
 		console.log("no no")
 		console.log("aver ")
-		element.style.padding = "39rem 7rem";
+		element.style.padding = "16rem 7rem";
 		//element.style.margin = '20% 20%';
 		element;
 		console.log(media_query, window.screen.availHeight)
