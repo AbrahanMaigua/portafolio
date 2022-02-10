@@ -44,8 +44,7 @@ box-shadow: inset 1px -10px 4px -8px #FFFFFF, inset 0px -50px 24px -30px #FFFFFF
 
 .welcome-text {
 	position: absolute;
-	width: 600px;
-	height: 300px;
+
 	margin: 20% 30%;
 	text-align: center;
 }
