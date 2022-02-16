@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "django_editorjs",
     #"hello",
     "home",
-    #"blog",
+    "blog",
 
 ]
 
