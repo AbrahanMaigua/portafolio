@@ -3,7 +3,7 @@
 	padding: 0;
 }
 
-header{
+.portada {
 	
 	background:  url('/static/img/header.jpg');
 	background-repeat: no-repeat;

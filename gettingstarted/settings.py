@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_editorjs",
     #"hello",
     "home",
     "blog",
+    #"django_editorjs_fields",
+    'ckeditor_uploader',
+    'ckeditor',
 
 ]
 
@@ -54,7 +56,12 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    #add 
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = "gettingstarted.urls"
 
@@ -120,5 +127,9 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = "/static/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
+# importante para utilizar imagenes
+CKEDITOR_UPLOAD_PATH =  'uploads/'
 django_heroku.settings(locals())

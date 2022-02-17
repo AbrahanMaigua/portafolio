@@ -1,0 +1,41 @@
+{% extends "base.html"%}
+{% block title %}blog / {{cont}}{% endblock %}
+{% load static %} 
+{% block style  %}
+<!--  Custom styles for this template -->
+<link rel="stylesheet" href="{% static '/css/features.css' %}">   
+{% endblock style %}
+{% block content %}
+
+<div class="container-lg px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom titele ">blog / {{cont}}</h2>
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+{% for servicio in post %}
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" 
+        {% if servicio.img.url is not None %}
+            style="background: center  url('{{servicio.img.url}}');
+                   background-size:cover ; "
+        {% endif %}>
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1"><a href="{% url 'articulo' servicio.id %}" title="">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-color ">{{servicio.titulo_principal}}</h2></a>
+            <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                <img alt="Django" width="32" height="32" class="rounded-circle border border-white">
+              </li>
+                <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                {% for cat in servicio.Categorias.all %}
+                <a href="{% url 'categoria' cont.id %}"><small>{{cat}}</small></a>
+              </li>
+              <li class="d-flex align-items-center">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                <small>{{servicio.author}}</small>
+              </li>
+            </ul>
+        {% endfor %}
+          </div>
+        </div>
+      </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "base.html"%}
+{% block title %}Inico{% endblock %}
+ {% block style %}
+{% load static %} 
+<!--  Custom styles for this template -->
+<link rel="stylesheet" href="{% static '/css/header-flexbox.css' %}"> 
+<link rel="stylesheet" href="{% static '/css/header-flexbox-respon.css' %}"> 
+{% endblock style %}
+
+{% block hero %}
+{% for contenido in inicio %}
+<section class="hero">
+	<div class="text-contenedor contenedor" {% if contenido.img.url is not None %}  style="background-image: url('{{contenido.img.url}}');
+	background-position: center;
+	background-size:cover ;
+	background-attachment: fixed;"{% endif %}>
+		
+		<h1 >{{contenido.title.capitalize|safe}}</h1>
+		{{contenido.post|safe }}
+	</div class="text-contenedor contenedor">
+</section>
+
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+
+<section class="padre bg-ligth pb-8 ">
+		<div class="container px-4 py-5" id="custom-cards">
+		 <h2 class="pb-2 border-bottom titele text-center">Proyectos</h2>
+	 <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+   {% for contenido in proyectos %}
+   	<div class="col-lg-3 mb-auto">
+        <div class="bd-placeholder-img rounded-circle bg-dark" style=" 
+		 width:  200px;
+		 height: 200px; 
+		 background-image: url('unsplash-photo-3.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+           </div>
+		   
+		   <p class="p-2 pb-5  display-6 "
+					{% if contenido.title|length_is:"4"%}
+						style='padding-left:4rem !important;'
+					{% else %}
+						style='padding-left:2rem !important;'
+					{% endif %}>
+		   {{contenido.title.capitalize|safe}}</p>
+        </div>
+      </div>
+  {% endfor %}
+    </div>    
+  </div>
+</section>
+
+<section class=" padre bg-dark" >
+<div class="container text-white pb-2 py-5">
+	{% for s in UltimaS %}
+	{{s.post|safe}}
+	{% endfor %}
+</div>
+</section>
+<section class="p-5 text-center">
+	<div class="display-4 p-5"><h1>Dejar un comentario<hr /></h1></div>
+	
+	<div class="text-contenedor contenedor " {% if contenido.img.url is not None  %}  style="background-image: url('{{contenido.img.url}}');
+	background-position: center;
+	background-size:cover ;
+	background-attachment: fixed;"{% endif %}>
+		<div class="form-signin">
+			<div class="container top-menu alert bg-ligth border" role='alert'>
+				<form action="{% url 'inicio2'  %}" method="POST"> {% csrf_token %}
+					{% if 'enviado' in request.GET %}
+						<p class="text-capitalize">Gracias por contatar conmigo</p>
+					{% endif %}
+						{{contactame.as_p}}
+					<input  class="w-50 btn btn-primary" type="submit" name="" value="Enviar">
+				<form>
+			</div>
+		</div>
+	</div >
+</section>
+
+
+
+{% endblock %}
+
+
+

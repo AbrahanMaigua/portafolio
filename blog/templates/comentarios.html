@@ -1,0 +1,12 @@
+
+<div class="top-menu">
+<h2>Caja de comentarios</h2>
+{% if user.is_authenticated %}            
+        <div class="container">
+        <p>{{comentario}}</p>  
+        </div>
+{% else %}
+    <div class="top-menu">
+        <p>sin comentarios</p>	
+    </div>
+{% endif %}	  	

@@ -1,0 +1,41 @@
+{% extends "base.html"%}
+{% block title %}blog{% endblock %}
+
+{% block style %}
+{% load static %} 
+<!--  Custom styles for this template -->
+{% endblock style %}
+{% block content %}
+ 
+
+	{% for posts in post %}
+	<div class="">
+
+		<div class="text-dark bg-dark portada"   style="{% if posts.img.url is not None  %}background-image: url('{{posts.img.url}}');
+			{% endif %}">
+			<div class="container-blog ">
+				<div class="card-title">		<h2 class=" display-6 text-center  fw-bold ">{{posts.titulo_principal}}</h2>
+		        </div>
+		    </div>
+		  </div>  
+			<div class="container text pb-lg-1">
+			  	{% for cat in posts.Categorias.all %}
+			     
+			          <P class="top-menu text-center" >Publicado: {{posts.create_date}} | Actualizado: {{posts.update_date}} | Categoria: {{cat|capfirst}}
+			          | Ahuthor: {{posts.author|capfirst}}
+			          </p>
+			</div>
+			  	{% endfor %}
+			<div class="container text-articulo">
+		
+				{% autoescape on %}
+					
+					{{posts.text|safe}}
+				{% endautoescape %}
+			  
+			</div>
+			<div class="container text-articulo">
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

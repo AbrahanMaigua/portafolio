@@ -1,0 +1,81 @@
+.blog-header {
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo{
+	padding-left: 5%; 
+}
+
+.card-cover {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.container-xl{
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 400px;
+}
+
+
+
+.top-menu{
+	padding-top: 5.5%;
+}
+
+.card-title{
+   padding-top: 12rem;
+    
+}
+
+.card-title h2 {
+    padding: 0.2em;
+    background: rgb(255,250,250);
+    
+}
+
+.text-shadow-1 a:hover {
+	color: #485259;
+}
+.text-shadow-1 a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.text{
+	font-size: 17px;
+}
+
+.text-articulo {
+    line-height: 21px;
+    font-size: 18px;
+    font-weight: 20;
+    padding-top: 3em;
+    font-size-adjust: 0.63;
+
+}
+.text-articulo div {
+    border-radius: 1rem;
+}
+
+.Forms {
+	display: inline-block;
+	justify-content: center;
+	align-content: center;
+	border-radius: 100px ;
+	
+	width: 500px ;
+	height: 400px;
+	padding: 5% 10% 10% 10%
+}
+.container-foms{
+	padding-top: 10%;
+	border: solid gray ;
+}
+
+.portada{
+    height: 29rem; 
+    background-size: cover;
+}

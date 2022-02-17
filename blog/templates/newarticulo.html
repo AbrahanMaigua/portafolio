@@ -2,9 +2,8 @@
 {% load static %}
 {% block content %}
 <!-- aqui empieza edirt.js-->
-{% load editorjs %}
-    {{ form.body_default }}
-    {{ form.body_editorjs | editorjs}}
-    {{ form.body_editorjs_text | editorjs}}
-{% endfor%}
+ {% load editorjs %}
+    {{ post.body_default }}
+    {{ post.body_editorjs | editorjs}}
+    {{ post.body_editorjs_text | editorjs}}
 {% endblock %}
