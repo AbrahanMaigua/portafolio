@@ -18,7 +18,6 @@ urlpatterns = [
    path("admin/", admin.site.urls),
    path(''      ,include("home.urls")),
    path(''      ,include("blog.urls")),
-   path('editorjs/', include('django_editorjs_fields.urls')),
 
 
 ] 
