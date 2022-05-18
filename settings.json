@@ -1,0 +1,27 @@
+{
+    "python.defaultInterpreterPath": "C:/Users/User/OneDrive/Escritorio/portafolio/Scripts/python.exe",
+    "editor.fontSize": 18,
+    "editor.tabSize": 2,
+    "files.exclude": {
+        "**/.py": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.colorTheme": "dc8e4142-c371-4107-a3c3-99dceefadac2",
+    "git.autofetch": true,
+    "jupyter.askForKernelRestart": false,
+    "window.menuBarVisibility": "compact",
+    "workbench.editor.untitled.hint": "hidden",
+    "workbench.editorAssociations": {
+        "*.sql": "default"
+    },
+    "breadcrumbs.enabled": false,
+    "launch": {
+        "configurations": [
+        
+        ]
+    }
+}

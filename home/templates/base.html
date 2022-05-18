@@ -1,6 +1,6 @@
 <!DOCTYPE html> <!-- etiqueta que define la version de html que se esta utilizado
 maoymente es utilizada por el html5-->
-<html lang=pt"><!--html root y lenguaje base-->
+<html lang="pt"><!--html root y lenguaje base-->
 <head><!--aqui se decararian todo la infomacion 
   para el explorador web y los buscadores-->
   <meta charset="UTF-8"> 
@@ -57,52 +57,52 @@ maoymente es utilizada por el html5-->
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma-rtl.min.css">
-  {% block styles %}{%endblock styles %}
-<title>Iniciou</title>
+  {% block styles %}{%endblock%}
+  <title>{% block title %}{%endblock%}</title>
+
 </head>
-<body>
-  <header>
+<header>
         
-   <nav class="navbar is-white">
-        <div class="container">
-            <div class="navbar-brand">
-                <a class="navbar-item brand-text" href="{ url 'index' }">
-          portafolio
-        </a>
-                <div class="navbar-burger burger" data-target="navMenu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div id="navMenu" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item" href="{ url 'index' }">
-            Home
-          </a>
-                    <a class="navbar-item" href="#">
-            Blog
-          </a>
-                    <a class="navbar-item" href="admin.html">
-            Payments
-          </a>
-                    <a class="navbar-item" href="admin.html">
-            Exceptions
-          </a>
-                                 <a class="navbar-item" href="admin.html">
-            Reports
-          </a>
-                </div>
+  <nav class="navbar is-white">
+       <div class="container">
+           <div class="navbar-brand">
+               <a class="navbar-item brand-text" href="{% url 'index'%}">
+         portafolio
+       </a>
+               <div class="navbar-burger burger" data-target="navMenu">
+                   <span></span>
+                   <span></span>
+                   <span></span>
+               </div>
+           </div>
+           <div id="navMenu" class="navbar-menu">
+               <div class="navbar-start">
+                   <a class="navbar-item" href="{% url 'index'%}">
+           Home
+         </a>
+                   <a class="navbar-item" href="{% url 'blog'%}">
+           Blog
+         </a>
+                   <a class="navbar-item" href="proyectos">
+           proyecto
+         </a>
+                   <a class="navbar-item" href="#">
+         </a>
+                                <a class="navbar-item" href="#">
+         </a>
+               </div>
 
-            </div>
-        </div>
-    
-        </nav>
-    {% block portada %}
-    {% endblock %}
+           </div>
+       </div>
+   
+       </nav>
+   {% block portada %}
+   {% endblock %}
 
 
-  </header>
+ </header>
+<body>
+  
 <main>
   {% block content %}
   {% endblock content %}

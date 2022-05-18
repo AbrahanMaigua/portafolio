@@ -1,89 +1,50 @@
 {% extends "base.html"%}
 {% block title %}blog{% endblock %}
 
-{% block style %}
+{% block  styles %}
 {% load static %} 
 <!--  Custom styles for this template -->
-<link rel="stylesheet" href="{% static '/css/styles_blog.css' %}">   
-{% endblock style %}
+
+<link rel="stylesheet" href="{% static '/blog.css' %}">
+
+{% endblock%}
 
 {% block content %}
-<div class="p-5 ">
-  <h2 class="display-2 fw-bold pb-2  text-center">Blog {% if cont  %}
-    / {{cont}}
-  {% endif %}<hr/></h2>
-</div>
-  
-<div class="container-blog">
 {% for post in Post_Tag %}
+<div class="container-blog">
+  <div class="card">
+    <div class="card-header">
+      <img {% if post.img.url is not None %}src="{{post.img.url}}" {% endif %} alt="rover" />
+    </div>
+    <div class="card-body">
+      {% for Categoria in post.Categorias.all %}
 
-    <div class="card">
-      <div class="img">
-        <img {% if post.img.url is not None %}src="{{post.img.url}}" {% endif %}>
-      </div>
+      <a class="" href="{% url 'categoria' Categoria.id  %}"  >
+        <span class="tag tag-teal" style="background-color: pink;">{{Categoria}}</span>
+      </a>
+      {% endfor %}
       
-      <div class="top-text">
-        <div class="name"><h2>{{post.titulo_principal.capitalize}}</h2></div>
-         {% for Categoria in post.Categorias.all %}
-         <small>
-               <a class="" href="{% url 'categoria' Categoria.id  %}"  >{{Categoria}}</a>
-             {% endfor %}
-       <a href="{% url 'ahutor' post.author.id %}" >@{{post.author}}</a>
-      </small>
-              
-        
-      </div>
-      <div class="bottom-text">
-        <div class="text"><p>{{post.resumen}}</p>
-          <div class="btn"><a href="{% url 'articulo' post.id %}">leer mas</a></div>
+      <h4>
+        <a href="{% url 'articulo' post.id %}">
+          {{post.titulo_principal.capitalize}}
+        </a>
+      </h4>
+      <p>
+        {{post.resumen}}
+      </p>
+      <div class="user">
+        <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
+        <div class="user-info">
+          
+          
+          <h5><a href="{% url 'ahutor' post.author.id %}" >@{{post.author}}</a>
+          </h5>
+          <small>2h ago</small>
         </div>
       </div>
-    </div> 
-  
-    {% endfor %}
-
-</div>
-{% endblock %}
-
-{% comment %}
- {% for Categoria in post.Categorias.all %}
-                <a href="{% url 'categoria' Categoria.id  %}" class="" ><small>{{Categoria}}</small></a>
-              {% endfor %}
-              <{{post.author}}
-      {% endfor %}
-
-  <div class="container px-4 py-5 " id="custom-cards">
-    <h2 class="pb-2 border-bottom titele">Blog<hr/></h2>
-    
-     
-     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-      {% for post in Post_Tag %}
-       <div class="col">
-        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" 
-        {% if post.img.url is not None %}
-            style="background: center  url('{{post.img.url}}');
-                   background-size:cover ; "
-        {% endif %}>
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-            <a href="{% url 'articulo' post.id %}" class="  link"><h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{post.titulo_principal.capitalize}}</h2></a>
-            <ul class="d-flex list-unstyled mt-auto">
-              <li class="me-auto">
-                <img alt="Django" width="32" height="32" class="rounded-circle border border-white">
-              </li>
-              <li class="d-flex align-items-center me-3">
-              {% for Categoria in post.Categorias.all %}
-                <a href="{% url 'categoria' Categoria.id  %}" class="" ><small>{{Categoria}}</small></a>
-              {% endfor %}
-              </li>
-              <li class="d-flex align-items-center">
-                <small>{{post.author}}</small><a href="#" class=" text-white"></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>    
+    </div>
   </div>
-    
-{% endcomment %}
+</div>
+{% endfor %}
+
+{% endblock %}
